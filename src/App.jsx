@@ -90,6 +90,7 @@ function App() {
 
       {selectedImage && (
         <ImageModal
+          isOpen={true}
           image={selectedImage}
           onClose={() => setSelectedImage(null)}
         />
