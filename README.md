@@ -1,218 +1,200 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>GOIT React HW-04 | Image Search</title>
-</head>
-<body>
+<h1>📸 React Homework 04 — Image Search Application</h1>
 
-  <h1>GOIT-REACT-HW-04</h1>
+<p>
+This project is an <strong>Image Search Application</strong> built with <strong>React</strong>.
+The main purpose of this homework is to practice working with
+<strong>HTTP requests</strong>, <strong>React Hooks</strong>, and <strong>external APIs</strong>.
+</p>
 
-  <p>
-    This project is an <strong>Image Search Application</strong> developed using
-    <strong>React</strong>. The application allows users to search for images by keyword
-    and fetches data from the <strong>Unsplash API</strong> using HTTP requests.
-  </p>
+<hr />
 
-  <p>
-    The main goal of this homework is to practice:
-    <strong>HTTP requests</strong>, <strong>React Hooks</strong>,
-    and <strong>component-based architecture</strong>.
-  </p>
+<h2>🔗 Project Links</h2>
 
-  <hr />
+<ul>
+  <li>
+    <strong>GitHub Repository:</strong><br />
+    <a href="https://github.com/kutluhangil/goit-react-hw-04" target="_blank">
+      https://github.com/kutluhangil/goit-react-hw-04
+    </a>
+  </li>
+  <li>
+    <strong>Live Demo (Vercel):</strong><br />
+    <a href="https://goit-react-hw-04-self-one.vercel.app/" target="_blank">
+      https://goit-react-hw-04-self-one.vercel.app/
+    </a>
+  </li>
+</ul>
 
-  <h2>🔗 Project Links</h2>
+<hr />
 
-  <ul>
-    <li>
-      <strong>GitHub Repository:</strong><br />
-      <a href="https://github.com/kutluhangil/goit-react-hw-04" target="_blank">
-        https://github.com/kutluhangil/goit-react-hw-04
-      </a>
-    </li>
-    <br />
-    <li>
-      <strong>Live Demo (Vercel):</strong><br />
-      <a href="https://goit-react-hw-04-self-one.vercel.app/" target="_blank">
-        https://goit-react-hw-04-self-one.vercel.app/
-      </a>
-    </li>
-  </ul>
+<h2>🛠️ Technologies & Libraries Used</h2>
 
-  <hr />
+<ul>
+  <li><strong>React</strong> — Building the user interface with components and hooks</li>
+  <li><strong>Vite</strong> — Fast development environment and build tool</li>
+  <li><strong>Axios</strong> — Performing HTTP requests</li>
+  <li><strong>Unsplash API</strong> — Fetching images by keyword</li>
+  <li><strong>React Hooks</strong> — useState and useEffect</li>
+  <li><strong>React Hot Toast</strong> — User notifications</li>
+  <li><strong>React Modal</strong> — Modal window implementation</li>
+  <li><strong>CSS Modules</strong> — Scoped and modular styling</li>
+  <li><strong>Prettier</strong> — Code formatting and consistency</li>
+</ul>
 
-  <h2>📌 Project Requirements</h2>
+<hr />
 
-  <ul>
-    <li>The project is created using <strong>Vite</strong>.</li>
-    <li><strong>Axios</strong> is used for HTTP requests.</li>
-    <li>Styling is implemented with <strong>CSS Modules</strong>.</li>
-    <li>All components are exported using <code>export default</code>.</li>
-    <li>Code formatting is handled with <strong>Prettier</strong>.</li>
-    <li>No errors or warnings appear in the console.</li>
-  </ul>
+<h2>📦 Library Installation</h2>
 
-  <hr />
+<p>The following libraries were installed manually during the project setup:</p>
 
-  <h2>🧠 Technologies & Libraries Used</h2>
+<pre>
+npm install axios
+npm install react-hot-toast
+npm install react-modal
+</pre>
 
-  <ul>
-    <li>React</li>
-    <li>Vite</li>
-    <li>Axios</li>
-    <li>React Hooks (useState, useEffect)</li>
-    <li>React Hot Toast (notifications)</li>
-    <li>React Modal</li>
-    <li>CSS Modules</li>
-  </ul>
+<p>
+All dependencies are listed in <code>package.json</code> and used throughout the application.
+</p>
 
-  <hr />
+<hr />
 
-  <h2>🌍 Image Search Service (Unsplash API)</h2>
+<h2>🌍 Image Search Service (Unsplash API)</h2>
 
-  <p>
-    The application fetches images from the <strong>Unsplash API</strong>.
-    A developer account was created and an application was registered on Unsplash
-    to obtain an access key.
-  </p>
+<p>
+The application fetches images from the <strong>Unsplash API</strong>.
+</p>
 
-  <ul>
-    <li>Images are fetched by keyword search</li>
-    <li><code>small</code> image size is used for the gallery</li>
-    <li><code>regular</code> image size is used in the modal</li>
-    <li>The API key is stored securely in a <code>.env</code> file</li>
-  </ul>
+<ul>
+  <li>A developer account was created on Unsplash</li>
+  <li>An application was registered to obtain an <strong>Access Key</strong></li>
+  <li>The API key is stored in environment variables (<code>.env</code>)</li>
+  <li>Images are fetched using keyword-based search</li>
+  <li>API request limits (50 requests/hour) are respected</li>
+</ul>
 
-  <p>
-    ⚠️ Unsplash demo accounts are limited to
-    <strong>50 requests per hour</strong>.
-  </p>
+<p><strong>Image usage:</strong></p>
+<ul>
+  <li><code>small</code> — Gallery thumbnails</li>
+  <li><code>regular</code> — Modal preview</li>
+</ul>
 
-  <hr />
+<hr />
 
-  <h2>🧩 Components</h2>
+<h2>📂 Project Structure</h2>
 
-  <h3>SearchBar</h3>
-  <ul>
-    <li>Receives the search keyword from the user</li>
-    <li>Displays a notification if the input is empty</li>
-    <li>Uses React Hot Toast for notifications</li>
-  </ul>
-
-  <h3>ImageGallery</h3>
-  <ul>
-    <li>Renders a list of image cards</li>
-    <li>Displayed only when images are available</li>
-  </ul>
-
-  <h3>ImageCard</h3>
-  <ul>
-    <li>Represents a single image item</li>
-    <li>Opens a modal when clicked</li>
-  </ul>
-
-  <h3>Loader</h3>
-  <ul>
-    <li>Displayed while images are loading</li>
-    <li>Rendered below the gallery</li>
-  </ul>
-
-  <h3>ErrorMessage</h3>
-  <ul>
-    <li>Displayed when an HTTP request fails</li>
-  </ul>
-
-  <h3>LoadMoreBtn</h3>
-  <ul>
-    <li>Loads the next page of images</li>
-    <li>Displayed only if images exist</li>
-  </ul>
-
-  <h3>ImageModal</h3>
-  <ul>
-    <li>Displays a large version of the image</li>
-    <li>Closes on ESC key or backdrop click</li>
-    <li>Implemented using React Modal</li>
-  </ul>
-
-  <hr />
-
-  <h2>🧱 Component Hierarchy</h2>
-
-  <pre>
-App
- ├─ SearchBar
- ├─ ImageGallery
- │   ├─ ImageCard
- │   ├─ ImageCard
- │   └─ ImageCard
- ├─ LoadMoreBtn
- ├─ Loader
- ├─ ErrorMessage
- └─ ImageModal
-  </pre>
-
-  <hr />
-
-  <h2>📁 Project Structure</h2>
-
-  <pre>
+<pre>
 GOIT-REACT-HW-04
- ├── node_modules
- ├── public
- ├── src
- │   ├── assets
- │   │   └── react.svg
- │   ├── components
- │   │   ├── ErrorMessage
- │   │   ├── ImageCard
- │   │   ├── ImageGallery
- │   │   ├── ImageModal
- │   │   ├── Loader
- │   │   ├── LoadMoreBtn
- │   │   └── SearchBar
- │   ├── services
- │   │   └── unsplash-api.js
- │   ├── App.jsx
- │   ├── App.css
- │   ├── index.css
- │   └── main.jsx
- ├── .env
- ├── .env.example
- ├── .gitignore
- ├── eslint.config.js
- ├── index.html
- ├── package.json
- ├── vite.config.js
- └── README.md
-  </pre>
+├── node_modules
+├── public
+├── src
+│   ├── assets
+│   │   └── react.svg
+│   ├── components
+│   │   ├── ErrorMessage
+│   │   ├── ImageCard
+│   │   ├── ImageGallery
+│   │   ├── ImageModal
+│   │   ├── Loader
+│   │   ├── LoadMoreBtn
+│   │   └── SearchBar
+│   ├── services
+│   │   └── unsplash-api.js
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+├── .env
+├── .env.example
+├── package.json
+├── vite.config.js
+└── README.md
+</pre>
 
-  <hr />
+<hr />
 
-  <h2>🚀 How to Run the Project</h2>
+<h2>📖 Application Description</h2>
 
-  <pre>
+<p>
+The Image Search application allows users to search for images by keyword
+and view results in a responsive gallery.
+</p>
+
+<ul>
+  <li>Search images by keyword</li>
+  <li>Fetch data from an external API</li>
+  <li>Display images in a gallery layout</li>
+  <li>Load more images using pagination</li>
+  <li>Show a loader during HTTP requests</li>
+  <li>Handle API errors gracefully</li>
+  <li>Open images in a modal view</li>
+</ul>
+
+<hr />
+
+<h2>🧩 Component Architecture</h2>
+
+<p>All components are rendered inside the <strong>App</strong> component.</p>
+
+<pre>
+App
+├── SearchBar
+├── ImageGallery
+│   ├── ImageCard
+│   ├── ImageCard
+│   └── ImageCard
+├── LoadMoreBtn
+├── Loader
+├── ErrorMessage
+└── ImageModal
+</pre>
+
+<hr />
+
+<h2>🪜 Homework Steps Implementation</h2>
+
+<ul>
+  <li><strong>Step 1:</strong> Search images by keyword</li>
+  <li><strong>Step 2:</strong> Fetch images using Axios and Unsplash API</li>
+  <li><strong>Step 3:</strong> Load additional images with pagination</li>
+  <li><strong>Step 4:</strong> Handle loading and error states</li>
+  <li><strong>Step 5:</strong> Display large image preview in a modal</li>
+</ul>
+
+<hr />
+
+<h2>🚀 How to Run the Project Locally</h2>
+
+<pre>
 npm install
 npm run dev
-  </pre>
+</pre>
 
-  <p>
-    The application runs at:
-    <strong>http://localhost:5173</strong>
-  </p>
+<p>The application will be available at:</p>
 
-  <hr />
+<pre>
+http://localhost:5173
+</pre>
 
-  <h2>✅ Conclusion</h2>
+<hr />
 
-  <p>
-    This project demonstrates effective usage of
-    <strong>HTTP requests</strong>,
-    <strong>React Hooks</strong>,
-    and a <strong>clean component structure</strong>.
-    The application follows modern React best practices and meets all homework requirements.
-  </p>
+<h2>📌 Final Notes</h2>
 
-</body>
-</html>
+<p>
+This homework focuses on <strong>HTTP requests and React Hooks</strong>,
+reinforcing key concepts such as:
+</p>
+
+<ul>
+  <li>Side effects with <code>useEffect</code></li>
+  <li>State management with <code>useState</code></li>
+  <li>Working with external APIs</li>
+  <li>Component responsibility separation</li>
+  <li>Clean and scalable project structure</li>
+</ul>
+
+<p>
+It provides a strong foundation for more advanced React applications.
+</p>
+
+<p><strong>Happy coding! 🚀</strong></p>
