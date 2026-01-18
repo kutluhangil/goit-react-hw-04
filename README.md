@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>GOIT React HW-04 | Image Search</title>
@@ -9,21 +9,20 @@
   <h1>GOIT-REACT-HW-04</h1>
 
   <p>
-    Bu proje, <strong>React</strong> kullanılarak geliştirilmiş bir
-    <strong>Görsel Arama (Image Search)</strong> uygulamasıdır.
-    Uygulama, kullanıcıdan alınan anahtar kelimeye göre
-    <strong>Unsplash API</strong> üzerinden HTTP istekleri yaparak görselleri listeler.
+    This project is an <strong>Image Search Application</strong> developed using
+    <strong>React</strong>. The application allows users to search for images by keyword
+    and fetches data from the <strong>Unsplash API</strong> using HTTP requests.
   </p>
 
   <p>
-    Bu ödevin temel amacı:
-    <strong>HTTP istekleri</strong>, <strong>React Hook'ları</strong> ve
-    <strong>bileşen tabanlı mimari</strong> kullanımını pekiştirmektir.
+    The main goal of this homework is to practice:
+    <strong>HTTP requests</strong>, <strong>React Hooks</strong>,
+    and <strong>component-based architecture</strong>.
   </p>
 
   <hr />
 
-  <h2>🔗 Proje Bağlantıları</h2>
+  <h2>🔗 Project Links</h2>
 
   <ul>
     <li>
@@ -34,7 +33,7 @@
     </li>
     <br />
     <li>
-      <strong>Canlı Demo (Vercel):</strong><br />
+      <strong>Live Demo (Vercel):</strong><br />
       <a href="https://goit-react-hw-04-self-one.vercel.app/" target="_blank">
         https://goit-react-hw-04-self-one.vercel.app/
       </a>
@@ -43,103 +42,103 @@
 
   <hr />
 
-  <h2>📌 Proje Gereksinimleri</h2>
+  <h2>📌 Project Requirements</h2>
 
   <ul>
-    <li>Proje <strong>Vite</strong> kullanılarak oluşturulmuştur.</li>
-    <li>HTTP istekleri için <strong>axios</strong> kütüphanesi kullanılmıştır.</li>
-    <li>Stil dosyaları <strong>CSS Modules</strong> ile hazırlanmıştır.</li>
-    <li>Tüm bileşenler <code>export default</code> ile dışa aktarılmıştır.</li>
-    <li>Kod formatlaması için <strong>Prettier</strong> kullanılmıştır.</li>
-    <li>Uygulama çalışırken konsolda hata veya uyarı bulunmamaktadır.</li>
+    <li>The project is created using <strong>Vite</strong>.</li>
+    <li><strong>Axios</strong> is used for HTTP requests.</li>
+    <li>Styling is implemented with <strong>CSS Modules</strong>.</li>
+    <li>All components are exported using <code>export default</code>.</li>
+    <li>Code formatting is handled with <strong>Prettier</strong>.</li>
+    <li>No errors or warnings appear in the console.</li>
   </ul>
 
   <hr />
 
-  <h2>🧠 Kullanılan Teknolojiler ve Kütüphaneler</h2>
+  <h2>🧠 Technologies & Libraries Used</h2>
 
   <ul>
     <li>React</li>
     <li>Vite</li>
-    <li>Axios (HTTP istekleri)</li>
+    <li>Axios</li>
     <li>React Hooks (useState, useEffect)</li>
-    <li>React Hot Toast (bildirimler)</li>
-    <li>React Modal (modal pencere)</li>
+    <li>React Hot Toast (notifications)</li>
+    <li>React Modal</li>
     <li>CSS Modules</li>
   </ul>
 
   <hr />
 
-  <h2>🌍 Görsel Arama Servisi (Unsplash API)</h2>
+  <h2>🌍 Image Search Service (Unsplash API)</h2>
 
   <p>
-    Uygulama, görselleri <strong>Unsplash API</strong> üzerinden alır.
-    Bunun için Unsplash üzerinde bir geliştirici hesabı oluşturulmuş ve
-    bir uygulama kaydı yapılmıştır.
+    The application fetches images from the <strong>Unsplash API</strong>.
+    A developer account was created and an application was registered on Unsplash
+    to obtain an access key.
   </p>
 
   <ul>
-    <li>Görseller anahtar kelimeye göre aranır</li>
-    <li>Galeride <code>small</code> boyutlu görseller gösterilir</li>
-    <li>Modal pencerede <code>regular</code> boyutlu görsel açılır</li>
-    <li>API anahtarı güvenlik için <code>.env</code> dosyasında saklanır</li>
+    <li>Images are fetched by keyword search</li>
+    <li><code>small</code> image size is used for the gallery</li>
+    <li><code>regular</code> image size is used in the modal</li>
+    <li>The API key is stored securely in a <code>.env</code> file</li>
   </ul>
 
   <p>
-    ⚠️ Unsplash demo hesapları için API istek limiti
-    <strong>saatte 50 istek</strong> ile sınırlıdır.
+    ⚠️ Unsplash demo accounts are limited to
+    <strong>50 requests per hour</strong>.
   </p>
 
   <hr />
 
-  <h2>🧩 Bileşenler</h2>
+  <h2>🧩 Components</h2>
 
   <h3>SearchBar</h3>
   <ul>
-    <li>Kullanıcıdan arama kelimesini alır</li>
-    <li>Boş gönderimde uyarı mesajı gösterir</li>
-    <li>React Hot Toast kullanılmıştır</li>
+    <li>Receives the search keyword from the user</li>
+    <li>Displays a notification if the input is empty</li>
+    <li>Uses React Hot Toast for notifications</li>
   </ul>
 
   <h3>ImageGallery</h3>
   <ul>
-    <li>Yüklenen görselleri liste halinde render eder</li>
-    <li>Sadece veri varsa görüntülenir</li>
+    <li>Renders a list of image cards</li>
+    <li>Displayed only when images are available</li>
   </ul>
 
   <h3>ImageCard</h3>
   <ul>
-    <li>Tek bir görsel kartını temsil eder</li>
-    <li>Tıklanınca modal açılır</li>
+    <li>Represents a single image item</li>
+    <li>Opens a modal when clicked</li>
   </ul>
 
   <h3>Loader</h3>
   <ul>
-    <li>Veri yüklenirken gösterilir</li>
-    <li>Galerinin altına render edilir</li>
+    <li>Displayed while images are loading</li>
+    <li>Rendered below the gallery</li>
   </ul>
 
   <h3>ErrorMessage</h3>
   <ul>
-    <li>HTTP isteği hata verdiğinde gösterilir</li>
+    <li>Displayed when an HTTP request fails</li>
   </ul>
 
   <h3>LoadMoreBtn</h3>
   <ul>
-    <li>Bir sonraki sayfayı yükler</li>
-    <li>Sadece görseller varsa gösterilir</li>
+    <li>Loads the next page of images</li>
+    <li>Displayed only if images exist</li>
   </ul>
 
   <h3>ImageModal</h3>
   <ul>
-    <li>Büyük boyutlu görseli gösterir</li>
-    <li>ESC veya dış alana tıklayınca kapanır</li>
-    <li>React Modal kullanılmıştır</li>
+    <li>Displays a large version of the image</li>
+    <li>Closes on ESC key or backdrop click</li>
+    <li>Implemented using React Modal</li>
   </ul>
 
   <hr />
 
-  <h2>🧱 Bileşen Hiyerarşisi</h2>
+  <h2>🧱 Component Hierarchy</h2>
 
   <pre>
 App
@@ -156,7 +155,7 @@ App
 
   <hr />
 
-  <h2>📁 Proje Dosya Yapısı</h2>
+  <h2>📁 Project Structure</h2>
 
   <pre>
 GOIT-REACT-HW-04
@@ -191,7 +190,7 @@ GOIT-REACT-HW-04
 
   <hr />
 
-  <h2>🚀 Projeyi Çalıştırma</h2>
+  <h2>🚀 How to Run the Project</h2>
 
   <pre>
 npm install
@@ -199,22 +198,20 @@ npm run dev
   </pre>
 
   <p>
-    Uygulama varsayılan olarak
+    The application runs at:
     <strong>http://localhost:5173</strong>
-    adresinde çalışır.
   </p>
 
   <hr />
 
-  <h2>✅ Sonuç</h2>
+  <h2>✅ Conclusion</h2>
 
   <p>
-    Bu proje ile React'ta:
-    <strong>HTTP istekleri</strong>,
-    <strong>state yönetimi</strong>,
-    <strong>effect kullanımı</strong> ve
-    <strong>modüler bileşen yapısı</strong>
-    başarıyla uygulanmıştır.
+    This project demonstrates effective usage of
+    <strong>HTTP requests</strong>,
+    <strong>React Hooks</strong>,
+    and a <strong>clean component structure</strong>.
+    The application follows modern React best practices and meets all homework requirements.
   </p>
 
 </body>
