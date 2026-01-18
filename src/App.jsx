@@ -1,24 +1,38 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+
 import SearchBar from "./components/SearchBar/SearchBar";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
 import Loader from "./components/Loader/Loader";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "./components/ImageModal/ImageModal";
+
 import { fetchImages } from "./services/unsplash-api";
 
-export default function App() {
-  const [query, setQuery] = useState("");
+function App() {
   const [images, setImages] = useState([]);
+  const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [totalPages, setTotalPages] = useState(0);
 
-  // 🔥 MODAL STATE
   const [selectedImage, setSelectedImage] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // 🔍 SEARCH
+  const handleSearch = async (searchQuery) => {
+    if (!searchQuery.trim()) {
+      toast.error("Please enter a search term");
+      return;
+    }
+
+    setQuery(searchQuery);
+    setImages([]);
+    setPage(1);
+  };
+
+  // 🌐 FETCH
   useEffect(() => {
     if (!query) return;
 
@@ -28,8 +42,12 @@ export default function App() {
         setError(false);
 
         const data = await fetchImages(query, page);
+
+        if (data.results.length === 0) {
+          toast("No images found 🤷‍♂️");
+        }
+
         setImages((prev) => [...prev, ...data.results]);
-        setTotalPages(data.total_pages);
       } catch {
         setError(true);
       } finally {
@@ -40,49 +58,41 @@ export default function App() {
     loadImages();
   }, [query, page]);
 
-  const handleSearch = (newQuery) => {
-    setQuery(newQuery);
-    setImages([]);
-    setPage(1);
-  };
-
-  const loadMore = () => {
-    setPage((prev) => prev + 1);
-  };
-
-  // 🔥 MODAL HANDLERS
-  const openModal = (image) => {
-    setSelectedImage(image);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedImage(null);
-  };
+  // ⬇️ AUTO SCROLL
+  useEffect(() => {
+    if (page > 1) {
+      window.scrollBy({
+        top: window.innerHeight,
+        behavior: "smooth",
+      });
+    }
+  }, [images]);
 
   return (
-    <div style={{ padding: 20 }}>
+    <>
       <SearchBar onSubmit={handleSearch} />
+      <Toaster position="top-right" />
 
       {error && <ErrorMessage />}
 
       {images.length > 0 && (
-        <ImageGallery images={images} onImageClick={openModal} />
+        <ImageGallery images={images} onImageClick={setSelectedImage} />
       )}
 
       {loading && <Loader />}
 
-      {images.length > 0 && page < totalPages && !loading && (
-        <LoadMoreBtn onClick={loadMore} />
+      {images.length > 0 && !loading && (
+        <LoadMoreBtn onClick={() => setPage((prev) => prev + 1)} />
       )}
 
-      {/* 🔥 MODAL */}
-      <ImageModal
-        isOpen={isModalOpen}
-        image={selectedImage}
-        onClose={closeModal}
-      />
-    </div>
+      {selectedImage && (
+        <ImageModal
+          image={selectedImage}
+          onClose={() => setSelectedImage(null)}
+        />
+      )}
+    </>
   );
 }
+
+export default App;
