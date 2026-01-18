@@ -1,6 +1,8 @@
+import css from "./ErrorMessage.module.css";
+
 export default function ErrorMessage() {
   return (
-    <p style={{ textAlign: "center", color: "red" }}>
+    <p className={css.error}>
       Something went wrong. Please try again later.
     </p>
   );

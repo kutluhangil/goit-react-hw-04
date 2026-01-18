@@ -1,0 +1,7 @@
+.error {
+    text-align: center;
+    color: #ef4444;
+    /* red-500 */
+    margin: 1rem 0;
+    font-weight: 500;
+}
