@@ -11,17 +11,20 @@ import ImageModal from "./components/ImageModal/ImageModal";
 import { fetchImages } from "./services/unsplash-api";
 
 function App() {
+  // 🖼️ DATA
   const [images, setImages] = useState([]);
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
 
+  // ⚙️ UI STATES
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
+  // 🔍 MODAL
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // 🔍 SEARCH
-  const handleSearch = async (searchQuery) => {
+  // 🔍 SEARCH HANDLER
+  const handleSearch = (searchQuery) => {
     if (!searchQuery.trim()) {
       toast.error("Please enter a search term");
       return;
@@ -32,7 +35,7 @@ function App() {
     setPage(1);
   };
 
-  // 🌐 FETCH
+  // 🌐 FETCH IMAGES
   useEffect(() => {
     if (!query) return;
 
@@ -47,7 +50,7 @@ function App() {
           toast("No images found 🤷‍♂️");
         }
 
-        setImages((prev) => [...prev, ...data.results]);
+        setImages((prevImages) => [...prevImages, ...data.results]);
       } catch {
         setError(true);
       } finally {
@@ -58,7 +61,7 @@ function App() {
     loadImages();
   }, [query, page]);
 
-  // ⬇️ AUTO SCROLL
+  // ⬇️ AUTO SCROLL (Load More sonrası)
   useEffect(() => {
     if (page > 1) {
       window.scrollBy({
@@ -66,7 +69,7 @@ function App() {
         behavior: "smooth",
       });
     }
-  }, [images]);
+  }, [page]);
 
   return (
     <>
