@@ -17,7 +17,11 @@ export default function ImageModal({ isOpen, image, onClose }) {
       <img
         src={image.urls.regular}
         alt={image.alt_description}
-        style={{ maxWidth: "100%", maxHeight: "80vh" }}
+        style={{
+          maxWidth: "100%",
+          maxHeight: "70vh",
+          objectFit: "contain",
+        }}
       />
 
       <p>
@@ -27,7 +31,16 @@ export default function ImageModal({ isOpen, image, onClose }) {
         <strong>Likes:</strong> {image.likes}
       </p>
 
-      <button onClick={onClose}>Close</button>
+      <button
+        onClick={onClose}
+        style={{
+          marginTop: "10px",
+          padding: "8px 16px",
+          cursor: "pointer",
+        }}
+      >
+        Close
+      </button>
     </Modal>
   );
 }
